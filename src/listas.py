@@ -82,7 +82,7 @@ def mezcla_ordenadas(lista1: list, lista2: list) -> list:
     return res
     
 
-def ordena_bubble_sort(lista: list, hay_intercambio) -> None:
+def ordena_bubble_sort(lista: list) -> None:
     """
     Ordena una lista de números enteros utilizando el algoritmo de ordenamiento bubble sort. 
 
@@ -93,12 +93,11 @@ def ordena_bubble_sort(lista: list, hay_intercambio) -> None:
     hay_intercambio = True
     while hay_intercambio:
         hay_intercambio = False
-        for e1, e2 in zip(lista,lista[1:]): #recorro los elementos consecutivos
+        for i, (e1, e2) in enumerate(zip(lista,lista[1:])): #recorro los elementos consecutivos
             if e2 < e1:
-                e1,e2 = e2,e1
+                lista[i], lista[i + 1] = e2, e1
                 hay_intercambio = True
-
-
+        
 def inserta_ordenado(lista_nombres: list[str], nombre: str) -> None:
     """
     Inserta un nombre en una lista de nombres manteniendo el orden (de menor a mayor longitud).
